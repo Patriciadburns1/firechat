@@ -14,3 +14,12 @@ export function updateChatMessages(snapshot){
         messages
     }
 }
+
+export function setUserData(payload){
+    localStorage.setItem('user', JSON.stringify(payload)); 
+
+    return{
+        type: types.SET_USER_DATA,
+        payload: payload 
+    }
+}

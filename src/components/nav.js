@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Nav = props => {
     return (
-        <nav className="blue-grey">
+        <nav className="pink lighten-4">
             <div className="nav-wrapper">
                 <Link style={{paddingLeft: '8px'}} to='/' className="brand-logo"> Fire Chat </Link>
                 <ul className="right" >
                     <li> <Link to='/'> Home </Link> </li>
                     <li> <Link to='/chat-room'> Chat Room </Link> </li> 
+                    <li> <Link to='/choose-name'> Change Name </Link> </li> 
                 </ul>
             </div>
         </nav>

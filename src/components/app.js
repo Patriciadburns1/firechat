@@ -5,6 +5,7 @@ import {Route} from 'react-router-dom';
 import Home from './home'; 
 import ChatRoom from './chat_room'; 
 import Nav from './nav'; 
+import ChooseName from './choose_name'; 
 
 const App = () => (
     <div>
@@ -12,6 +13,7 @@ const App = () => (
        <div className="container"> 
         <Route exact path='/' component={Home}/> 
         <Route path ='/chat-room' component={ChatRoom}/> 
+        <Route path='/choose-name' component={ChooseName}/> 
         </div> 
     </div>
 );
