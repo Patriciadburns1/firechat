@@ -11,13 +11,16 @@ export default (WrappedComponent) => {
         componentDidMount() {
            this.dbRef.orderBy('timestamp').onSnapshot(this.props.updateChatMessages);
         }
+
         sendMessage = (msg) => {
-            console.log('from db hoc', msg); 
+            const{user} = this.props; 
             const newMsg ={
-                name: 'Jake',
+                name: user.name || 'Guest', 
+                color: user.color || "#000000",
                 message: msg,
                 timestamp: new Date().getTime()
             }; 
+
             this.dbRef.add(newMsg); 
         }
 
@@ -25,9 +28,11 @@ export default (WrappedComponent) => {
             return <WrappedComponent {...this.props} sendMessage={this.sendMessage}/>;
         }
     }
+    
     function mapStateToProps(state) {
         return {
-            messages: state.chat.messages
+            messages: state.chat.messages,
+            user: state.chat.user
         }
     }
     return connect(mapStateToProps, { updateChatMessages })(Db);
